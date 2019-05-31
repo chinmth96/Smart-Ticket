@@ -17,17 +17,15 @@
 
 
         }
-        .inf input, textarea{
-            width: 90%;
-        }
+        /*.inf input, textarea{*/
+        /*    width: 90%;*/
+        /*}*/
         .content{
             position: relative;
             top: 90px;
             display: block;
             background-color: aliceblue;
             margin-bottom: 120px;
-            padding-bottom: 20px;
-            width: 50%;
             min-width: 300px;
         }
         footer{
@@ -86,37 +84,37 @@
 
 <div class= "container content">
 
-    <form action="<%= action %>" method="post">
+    <form action="<%= action%>" method="post">
         <div class="form-group inf container">
             <label >Tên sự kiện</label>
-            <input type="text" name="name" value="<%= obj.name%>">
+            <input type="text" name="name" class="form-control" value="<%= obj.name%>">
         </div>
         <div class="form-group inf container">
             <label >Địa chỉ </label>
-            <input type="text" name="location" value="<%= obj.location%> ">
+            <input type="text" name="location" class="form-control" value="<%= obj.location%> ">
         </div>
         <div class="form-group inf container">
             <label >Thời gian bắt đầu </label>
-            <input type="datetime-local" name="timeStart" value="<%= obj.timeStart %>">
+            <input type="datetime-local" name="timeStart"class="form-control"value="<%= obj.timeStart %>">
         </div>
         <div class="form-group inf container">
             <label>Thời gian kết thúc </label>
-            <input type="datetime-local"  name="timeEnd"value="<%= obj.timeEnd %>" >
+            <input type="datetime-local"  name="timeEnd" class="form-control"value="<%= obj.timeEnd %>" >
         </div>
         <div class="form-group inf container">
             <label >Số lượng vé </label>
-            <input type="number"  name="numTicket"value="<%= obj.numTicket %>" >
+            <input type="number"  name="numTicket" class="form-control"value="<%= obj.numTicket %>" >
         </div>
         <div class="form-group inf container">
             <label >Giá vé </label>
-            <input type="number" name="price" value="<%= obj.price %>" >
+            <input type="number" name="price" class="form-control" value="<%= obj.price %>" >
         </div>
         <div class="form-group inf container">
             <label >Nội dung sự kiện</label>
-            <textarea rows="3"  name="content" value="<%= obj.content %>"></textarea>
+            <textarea rows="3"  name="content" class="form-control" value="<%= obj.content%>"></textarea>
         </div>
         <div class="form-group inf container">
-            <input type="file" name="image">
+            <input type="file" class="form-control" name="image">
             <img src="" alt="" id="image-preview" style="width: 100px">
             <input type="hidden" name="imageUrl"  >
         </div>
