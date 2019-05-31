@@ -7,10 +7,6 @@ var EventSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    typeEvent: {
-        type: String,
-        required: true
-    },
     timeStart: {
         type: Date,
         required: true
@@ -23,10 +19,11 @@ var EventSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    location:{
-        type: String
+    numTicket: {
+        type: Number,
+        required: true
     },
-    donor: {
+    location:{
         type: String
     },
     price: {
@@ -35,5 +32,5 @@ var EventSchema = new mongoose.Schema({
     imageUrl: String,
     status: Number
 });
-var Event = mongoose.model('products', EventSchema);
+var Event = mongoose.model('event', EventSchema);
 module.exports = Event;
