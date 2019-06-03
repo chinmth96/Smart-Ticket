@@ -13,88 +13,100 @@
             height: 200px;
             background: #aaa;
         }
+        .navbar{
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="/">  Smart Ticket</a>
+        <a class="navbar-brand" href="/">Smart Ticket</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Gõ để tìm kiếm" aria-label="Search">
+                <button class="btn btn-outline-info btn-sm my-2 my-sm-0" type="submit">Tìm</button>
+            </form>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="about.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="services.html">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Các sự kiện
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                        <a class="dropdown-item" href="#">Gần bạn</a>
+                        <a class="dropdown-item" href="#">Bạn đã tham gia</a>
+                        <a class="dropdown-item" href="#">Có thể bạn hứng thú</a>
+                    </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Portfolio
+                        Phân loại
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                        <a class="dropdown-item" href="portfolio-1-col.html">1 Column Portfolio</a>
-                        <a class="dropdown-item" href="portfolio-2-col.html">2 Column Portfolio</a>
-                        <a class="dropdown-item" href="portfolio-3-col.html">3 Column Portfolio</a>
-                        <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
-                        <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a>
+                        <a class="dropdown-item" href="#">Hòa nhạc</a>
+                        <a class="dropdown-item" href="#">Xem phim</a>
+                        <a class="dropdown-item" href="#">Triển lãm</a>
+                        <a class="dropdown-item" href="#">Hội thảo</a>
+                        <a class="dropdown-item" href="#">Khác ...</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Blog
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                        <a class="dropdown-item" href="blog-home-1.html">Blog Home 1</a>
-                        <a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
-                        <a class="dropdown-item" href="blog-post.html">Blog Post</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Liên hệ</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/login" class="btn btn-info" role="button">Đăng nhập</a>
+                    <a href="/user/information" class="btn btn-outline-info btn-sm">Đăng ký</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-<div class="carousel" >
-    <img src="http://placehold.it/1920x800" width="100%" alt="">
-    <div class="carousel-caption" style="color:black">
-        <h1>First Slide</h1>
+
+<div class="carousel" style="margin-top: 55px">
+    <img src="http://res.cloudinary.com/a123abc/image/upload/<%= obj.imageUrl%>" width="100%" alt="">
+    <div class="carousel-caption" style="">
+        <h1><%= obj.name%></h1>
         <a href="#" class="btn btn-danger btn-lg" role="button">Book Now</a>
     </div>
 </div>
+<div class="container" style="text-align: center"></div>
 
 <div class="container" style="margin-top:30px">
     <div class="row">
         <div class="col-sm-4">
-            <h2>About Me</h2>
+            <h2>Thông tin chung</h2>
 
-            <h5>Time:</h5>
+            <h5>Địa điểm</h5>
+            <div id="map" style="width:350px;height:250px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7449.797812046831!2d105.84006449767709!3d20.996689132630173!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac7aed2eaaab%3A0xceeff82270d48403!2zQ-G7pWMgVGjDuiB5!5e0!3m2!1svi!2s!4v1559541138720!5m2!1svi!2s" width="350" height="250" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+            <p><%= obj.location%></p>
+            <h5>Thời gian:</h5>
             <div class="carousel" style="text-align:center; border:solid grey 1px; width:50%;box-shadow:3px 3px 3px">
                 <div class="month" style="background-color:red;color:white;">
-                    <p style="padding:10%">  MAY</p>
+                    <p style="padding:10%">Tháng <%= obj.timeStart.getMonth()+1%></p>
                 </div>
-                <div class="day" style= "font-size:50px">
-                    <p>25</p>
+                <div class="date" >
+                    <h3><%= obj.timeStart.getDate()%></h3>
+                    <hr>
                 </div>
-                <div class="date">
-                    <p>sunday</p>
+                <div class="day">
+                    <p></p>
                 </div>
-            </div>
-            <h5>Location</h5>
-            <div class="fakeimg">Fake Image</div>
-            <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
 
+            </div>
 
             <a href="#" class="btn btn-danger btn-lg" role="button">Book Now</a>
+
+
             <hr class="d-sm-none">
         </div>
         <div class="col-sm-8">
-            <h2>TITLE HEADING</h2>
-            <h5>Title description, Dec 7, 2017</h5>
+            <h2><%= obj.name%></h2>
+            <h5><%= obj.location%></h5>
+            <hr>
             <div class="fakeimg">Fake Image</div>
             <p>Some text..</p>
             <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
@@ -111,6 +123,5 @@
 <div class="jumbotron text-center" style="margin-bottom:0">
     <p>Footer</p>
 </div>
-
 </body>
 </html>
