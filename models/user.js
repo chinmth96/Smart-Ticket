@@ -7,6 +7,16 @@ var UserSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    userName: {
+        type: String,
+        required: true,
+        unique: true,
+        trim: true
+    },
+    password:{
+        type: String,
+        required: true,
+    },
     location: {
         type: String
     },
@@ -20,9 +30,6 @@ var UserSchema = new mongoose.Schema({
     phone: {
         type: Number,
         required: true
-    },
-    content:{
-        type: String
     },
     imageUrl: String,
     status: Number

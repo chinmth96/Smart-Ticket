@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 
-
 var EventSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -11,7 +10,7 @@ var EventSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    timeEnd:{
+    timeEnd: {
         type: Date,
         required: true
     },
@@ -23,11 +22,37 @@ var EventSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    location:{
+    location: {
+        type: String,
+        required: true
+    },
+    location_GG:{
         type: String
     },
     price: {
         type: Number
+    },
+    tickets: {
+        type: [{
+            CODE:{
+                type: String,
+                required: true,
+                trim: true
+            },
+            location:{
+                type: String,
+                required: true
+            },
+            time:{
+                type: String,
+                required:true
+            },
+            status:{
+                type: String,
+                required: true
+            }
+        }],
+        required: true
     },
     imageUrl: String,
     status: Number

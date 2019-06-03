@@ -1,4 +1,4 @@
-var User = require('../models/event');
+var User = require('../models/user');
 var mongoose = require('mongoose');
 require('mongoose-pagination');
 
@@ -58,4 +58,18 @@ exports.update = function (req, resp) {
                 resp.redirect('/');
             }
         });
+}
+exports.login = function (req,resp) {
+    User.findOne({userName: req.body.userName, password: req.body.password},function(err,obj){
+        if (err) {
+            return resp.render('/login',{title: 'incorrect'});
+        } else {
+            var responseData = {
+                'action': '/user/' + req.params.id,
+                'obj': obj
+            };
+            resp.render('index', responseData);
+        }
+    }
+)
 }
